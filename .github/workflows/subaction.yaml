@@ -1,8 +1,8 @@
 name: Build
 
 on:
-  - workflow_call
-  - push:
+  workflow_call:
+  push:
     branches:
       - main
 
