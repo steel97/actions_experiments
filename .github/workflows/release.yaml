@@ -5,12 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: true
-    - uses: ./.github/workflows/subaction.yaml
+    uses: ./.github/workflows/subaction.yaml
 
   create_release:
     runs-on: ubuntu-latest
