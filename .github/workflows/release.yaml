@@ -13,14 +13,17 @@ jobs:
     permissions:
       contents: write
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/download-artifact@v3
+      with:
+        name: somereleasepkg
+        path: ./somereleasepkg.zip
     - uses: ncipollo/release-action@v1
       with:
-        commit: "main"
-        tag: "1.0.1"
+        commit: 'main'
+        tag: '1.0.1'
         allowUpdates: true
         artifactErrorsFailBuild: true
         generateReleaseNotes: true
-        name: "Some release"
+        name: 'Some release'
         removeArtifacts: true
-        artifacts: "somereleasepkg"
+        artifacts: '*.zip'
