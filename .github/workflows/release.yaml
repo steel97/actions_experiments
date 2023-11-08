@@ -8,11 +8,9 @@ on:
         default: '1.0.0'
       draft:
         description: 'Should new release be a draft?'
+        type: boolean
         required: true
         default: true
-        options: 
-        - true
-        - false
 
 jobs:
   build:
