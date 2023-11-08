@@ -6,8 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    call-workflow-passing-data:
-      uses: ./.github/workflows/subaction.yml
+    steps:
+    - uses: ./.github/workflows/subaction.yml
 
   create_release:
     runs-on: ubuntu-latest
