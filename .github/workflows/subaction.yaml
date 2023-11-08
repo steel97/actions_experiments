@@ -1,0 +1,20 @@
+name: Build
+
+on:
+  - workflow_call
+
+jobs:
+  linux-x86_64:
+    name: linux x86_64
+    runs-on: ubuntu-latest
+    environment: linux
+    env:
+      build_package_name: veil-wallet linux-x86_64
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.build_package_name }}
+          path: test.md
