@@ -1,16 +1,18 @@
 name: Release
 
-inputs:
-  tag:
-    description: 'Tag name (without v prefix, ex. 1.0.0)'
-    default: '1.0.0'
-  draft:
-    description: 'Should new release be a draft?'
-    required: true
-    default: true
-
 on:
-  - workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag name (without v prefix, ex. 1.0.0)'
+        default: '1.0.0'
+      draft:
+        description: 'Should new release be a draft?'
+        required: true
+        default: true
+        options: 
+        - true
+        - false
 
 jobs:
   build:
