@@ -1,5 +1,14 @@
 name: Release
 
+inputs:
+  tag:
+    description: 'Tag name (without v prefix, ex. 1.0.0)'
+    default: '1.0.0'
+  draft:
+    description: 'Should new release be a draft?'
+    required: true
+    default: true
+
 on:
   - workflow_dispatch
 
@@ -25,10 +34,11 @@ jobs:
     - uses: ncipollo/release-action@v1
       with:
         commit: 'main'
-        tag: '1.0.1'
+        tag: 'v${{ inputs.tag }}'
         allowUpdates: true
         artifactErrorsFailBuild: true
         generateReleaseNotes: true
-        name: 'Some release'
+        draft: '${{ inputs.draft }}'
+        name: 'Some unique name ${{ inputs.tag }}'
         removeArtifacts: true
         artifacts: '*.zip'
