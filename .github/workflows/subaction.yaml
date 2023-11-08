@@ -16,5 +16,5 @@ jobs:
           submodules: true
       - uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.build_package_name }}
+          name: somereleasepkg
           path: test.md
