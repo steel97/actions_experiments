@@ -19,8 +19,8 @@ jobs:
         name: somereleasepkg
         path: ./somereleasepkg
     - run: |
-      rm -rf somereleasepkg.zip
-      zip -r somereleasepkg.zip somereleasepkg
+        rm -rf somereleasepkg.zip
+        zip -r somereleasepkg.zip somereleasepkg
     # upload release
     - uses: ncipollo/release-action@v1
       with:
