@@ -13,10 +13,15 @@ jobs:
     permissions:
       contents: write
     steps:
+    # first artifact
     - uses: actions/download-artifact@v3
       with:
         name: somereleasepkg
-        path: ./somereleasepkg.zip
+        path: ./somereleasepkg
+    - run: |
+      rm -rf somereleasepkg.zip
+      zip -r somereleasepkg.zip somereleasepkg
+    # upload release
     - uses: ncipollo/release-action@v1
       with:
         commit: 'main'
